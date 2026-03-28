@@ -49,6 +49,15 @@ Open `http://127.0.0.1:5000`.
 python -m unittest discover -s tests -v
 ```
 
+## Run with Docker
+
+```bash
+docker build -t cuhk-new-media .
+docker run --rm -p 5000:5000 cuhk-new-media
+```
+
+Open `http://127.0.0.1:5000`.
+
 ## Project structure
 
 - `app/__init__.py`: App factory

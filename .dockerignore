@@ -1,0 +1,25 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+
+# Tooling and local metadata
+.git/
+.idea/
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# OS files
+.DS_Store
+
+# Local env and runtime logs
+.env
+*.log
+
