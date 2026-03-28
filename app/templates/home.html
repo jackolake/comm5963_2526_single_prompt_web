@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-sheen bg-cuhkp-700 text-white">
+    <div class="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-5 md:items-center">
+        <div class="md:col-span-3">
+            <p class="text-sm uppercase tracking-[0.2em] text-cuhky-200">School of Journalism and Communication</p>
+            <h1 class="mt-3 text-4xl font-bold leading-tight md:text-5xl">MSc in New Media</h1>
+            <p class="mt-5 max-w-2xl text-base text-cuhkp-100 md:text-lg">A refreshed digital presence for the CUHK programme, based on the original site structure and modernized for readability, responsiveness, and conversion.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="{{ url_for('main.admissions') }}" class="rounded-md bg-cuhky-400 px-5 py-3 font-semibold text-cuhkp-900 hover:bg-cuhky-300">Apply Now</a>
+                <a href="{{ url_for('main.curriculum') }}" class="rounded-md border border-cuhkp-100 px-5 py-3 font-semibold text-cuhkp-50 hover:bg-cuhkp-600">View Curriculum</a>
+            </div>
+        </div>
+        <div class="md:col-span-2">
+            <div class="rounded-xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-sm">
+                <p class="text-sm font-semibold uppercase tracking-widest text-cuhky-200">At a Glance</p>
+                <ul class="mt-4 space-y-3 text-sm">
+                    <li>Interdisciplinary training in communication and media technology</li>
+                    <li>Hands-on multimedia production and UI design exposure</li>
+                    <li>Creative application for business and community impact</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-6 py-14">
+    <h2 class="section-title">Programme Highlights</h2>
+    <div class="mt-6 grid gap-6 md:grid-cols-3">
+        {% for item in highlights %}
+            <article class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <h3 class="text-lg font-semibold text-cuhkp-700">{{ item.title }}</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-700">{{ item.body }}</p>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="bg-white/80 py-14">
+    <div class="mx-auto max-w-6xl px-6">
+        <h2 class="section-title">Curriculum Structure</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+            {% for block in curriculum %}
+                <article class="rounded-xl border border-cuhkp-100 bg-white p-6">
+                    <h3 class="font-semibold text-cuhkp-700">{{ block.name }}</h3>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                        {% for topic in block["items"] %}
+                            <li class="list-inside list-disc">{{ topic }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-6 py-14">
+    <div class="grid gap-8 md:grid-cols-2">
+        <article class="rounded-xl bg-cuhkp-50 p-6 ring-1 ring-cuhkp-100">
+            <h2 class="section-title">Admissions FAQ</h2>
+            <div class="mt-4 space-y-3">
+                {% for faq in faqs %}
+                    <details class="rounded-lg bg-white p-4 ring-1 ring-slate-200">
+                        <summary class="cursor-pointer font-semibold text-cuhkp-700">{{ faq.question }}</summary>
+                        <p class="mt-2 text-sm text-slate-700">{{ faq.answer }}</p>
+                    </details>
+                {% endfor %}
+            </div>
+        </article>
+
+        <article class="rounded-xl bg-cuhkp-700 p-6 text-cuhkp-50">
+            <h2 class="text-2xl font-semibold text-cuhky-200">Students and Alumni</h2>
+            <ul class="mt-4 space-y-2 text-sm">
+                {% for item in student_alumni %}
+                    <li class="list-inside list-disc">{{ item }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('main.students_alumni') }}" class="mt-6 inline-block rounded-md bg-cuhky-400 px-4 py-2 font-semibold text-cuhkp-900 hover:bg-cuhky-300">Explore More</a>
+        </article>
+    </div>
+</section>
+{% endblock %}

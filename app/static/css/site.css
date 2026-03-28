@@ -1,0 +1,19 @@
+:root {
+    --cuhk-purple: #7d2882;
+    --cuhk-purple-deep: #73216d;
+    --cuhk-yellow: #f0aa23;
+    --cuhk-gold: #e6ae00;
+}
+
+.hero-sheen {
+    background-image: radial-gradient(120% 120% at 95% 5%, rgba(230, 174, 0, 0.24) 0%, rgba(230, 174, 0, 0) 65%),
+        linear-gradient(140deg, var(--cuhk-purple-deep) 0%, var(--cuhk-purple) 55%, #964c90 100%);
+}
+
+.section-title {
+    color: var(--cuhk-purple-deep);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+

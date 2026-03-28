@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cuhkp: {
+                            50: "#f5eef5",
+                            100: "#ead9eb",
+                            200: "#d9b8db",
+                            300: "#c08fc3",
+                            400: "#a45faa",
+                            500: "#964c90",
+                            600: "#7d2882",
+                            700: "#73216d",
+                            800: "#5d1a58",
+                            900: "#3f0f3f"
+                        },
+                        cuhky: {
+                            100: "#fbe6ad",
+                            200: "#f7d67f",
+                            300: "#f4c459",
+                            400: "#f0aa23",
+                            500: "#e6ae00",
+                            600: "#8c6e00"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+<header class="bg-cuhkp-700 text-white shadow-lg">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="{{ url_for('main.home') }}" class="text-lg font-semibold tracking-wide">CUHK MSc New Media</a>
+        <nav class="hidden gap-5 text-sm font-medium md:flex">
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.programme') }}">Programme</a>
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.curriculum') }}">Curriculum</a>
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.admissions') }}">Admissions</a>
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.faculty') }}">Faculty</a>
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.research') }}">Research</a>
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.students_alumni') }}">Students & Alumni</a>
+            <a class="hover:text-cuhky-300" href="{{ url_for('main.contact') }}">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="mt-16 bg-cuhkp-800 text-cuhkp-100">
+    <div class="mx-auto max-w-6xl px-6 py-8 text-sm">
+        <p class="font-semibold text-cuhky-200">School of Journalism and Communication, CUHK</p>
+        <p class="mt-2">Revamped reference site inspired by the original MSc in New Media programme pages.</p>
+    </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-6 py-14">
+    <h1 class="text-3xl font-bold text-cuhkp-700">Curriculum</h1>
+    <p class="mt-4 max-w-3xl text-slate-700">The revamped structure organizes courses into foundation knowledge, design and production practice, and application-oriented capstone preparation.</p>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {% for block in curriculum %}
+            <article class="rounded-xl border border-cuhkp-100 bg-white p-6">
+                <h2 class="text-lg font-semibold text-cuhkp-700">{{ block.name }}</h2>
+                <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                    {% for topic in block["items"] %}
+                        <li class="list-inside list-disc">{{ topic }}</li>
+                    {% endfor %}
+                </ul>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
